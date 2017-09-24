@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation Page</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h2> Survey Questions </h2>
+        <hr>
+        <h3>
+          <strong> About You </strong>
+        </h3>
+        <form>
+            <h4> Name (required) </h4>
+            <input type="text" name id="name" class="form-control" required>
+            <h4> Link to Photo Image (Required) </h4>
+            <input type="text" name id="photo" class="form-control" required>
+            <hr>
+            <!-- start questions -->
+            <h3>
+              <strong> Question 1 </strong>
+            </h3>
+            <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
+            <select id = "q1" class="form-control">
+                <option value=""></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+             <h3>
+              <strong> Question 2 </strong>
+            </h3>
+            <h4>Generally speaking, you rely more on your experience than your imagination.</h4>
+            <select id="q2" class="form-control">
+                <option value=""></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+
+
+            <button type="submit" class="btn btn-primary submit" id="submit">Submit</button>
+        </form>
+    
+    <footer class="footer">
+      <div class="container">
+        <p><a href="/api/friends">API Table Link</a> | <a href="https://github.com/eleaverton/FriendFinder">GitHub Repo</a></p>
+      </div>
+    </footer>
+    </div>
+<script type="text/javascript">
+$("#submit").on("click", function(event){
+  event.preventDefault();
+  var newFriend = {
+    name: $("#name").val().trim(),
+    photoLink: $("#photo").val().trim(),
+    response1:$("#q1").val().trim(),
+    response2:$("#q2").val().trim()
+  }
+  console.log(newFriend);
+
+  $.post("/api/friends", newFriend, function(data){
+    if (data){
+      alert("This is where your best match will show up")
+    }
+    $("#name").val("");
+    $("#photo").val("");
+    $("#q1").val("");
+    $("#q2").val("");
+  });
+});
+
+
+</script>
+
+
+</body>
+
+</html>
