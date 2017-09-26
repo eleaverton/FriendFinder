@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Reservation Page</title>
+    <title>Survey Page</title>
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery.js"></script>
@@ -27,7 +27,7 @@
             <h3>
               <strong> Question 1 </strong>
             </h3>
-            <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
+            <h4>I would rather go to a party than sit down with a friend over a cup of coffee.</h4>
             <select id = "q1" class="form-control">
                 <option value=""></option>
                 <option value="1">1 (Strongly Disagree)</option>
@@ -39,7 +39,7 @@
              <h3>
               <strong> Question 2 </strong>
             </h3>
-            <h4>Generally speaking, you rely more on your experience than your imagination.</h4>
+            <h4>I would rather be alone every night of the week than have to put myself in uncomfortable social situations.</h4>
             <select id="q2" class="form-control">
                 <option value=""></option>
                 <option value="1">1 (Strongly Disagree)</option>
@@ -48,6 +48,109 @@
                 <option value="4">4</option>
                 <option value="5">5 (Strongly Agree)</option>
             </select>
+            <h3>
+              <strong> Question 3 </strong>
+            </h3>
+            <h4>I don't like to spend too much money on social events.</h4>
+            <select id="q3" class="form-control">
+                <option value=""></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+            <h3>
+              <strong> Question 4 </strong>
+            </h3>
+            <h4>I enjoy trying new foods and experiences.</h4>
+            <select id="q4" class="form-control">
+                <option value=""></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+
+            <h3>
+              <strong> Question 5 </strong>
+            </h3>
+            <h4>I would rather hear the harsh truth than false kind words.</h4>
+            <select id="q5" class="form-control">
+                <option value=""></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+
+            <h3>
+              <strong> Question 6 </strong>
+            </h3>
+            <h4>I would rather meet up for an active event (e.g. walk, yoga, hike) than a sedentary event (e.g. movie, dinner, coffee).</h4>
+            <select id="q6" class="form-control">
+                <option value=""></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+
+            <h3>
+              <strong> Question 7 </strong>
+            </h3>
+            <h4>I appreciate dry humor.</h4>
+            <select id="q7" class="form-control">
+                <option value=""></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+
+            <h3>
+              <strong> Question 8 </strong>
+            </h3>
+            <h4>I enjoy talking about current events.</h4>
+            <select id="q8" class="form-control">
+                <option value=""></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+
+            <h3>
+              <strong> Question 9 </strong>
+            </h3>
+            <h4>I am comfortable spending time with someone in silence.</h4>
+            <select id="q9" class="form-control">
+                <option value=""></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+
+            <h3>
+              <strong> Question 10 </strong>
+            </h3>
+            <h4>It's okay to fight with your friends often.</h4>
+            <select id="q10" class="form-control">
+                <option value=""></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+
 
 
             <button type="submit" class="btn btn-primary submit" id="submit">Submit</button>
@@ -59,25 +162,63 @@
       </div>
     </footer>
     </div>
+    <!-- modal -->
+    <div id="resultsModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h2 class="modal-title"><strong>Best Match</strong></h2>
+          </div>
+          <div class="modal-body">
+            <h2 id="matchName"></h2>
+            <img id="matchImg" src="https://www.gianteagle.com/PageFiles/12532/deptBlk_petcare_generalPetSupplies_050812.jpg" style="width:150px;" alt="">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
 <script type="text/javascript">
 $("#submit").on("click", function(event){
   event.preventDefault();
   var newFriend = {
     name: $("#name").val().trim(),
     photoLink: $("#photo").val().trim(),
-    response1:$("#q1").val().trim(),
-    response2:$("#q2").val().trim()
-  }
+    responses:[$("#q1").val().trim(),$("#q2").val().trim(),$("#q3").val().trim(),$("#q4").val().trim(),$("#q5").val().trim(),$("#q6").val().trim(),$("#q7").val().trim(),$("#q8").val().trim(),$("#q9").val().trim(),$("#q10").val().trim()]
+    
+  };
   console.log(newFriend);
+  //works
+
+
+  //try putting in the api route compatibility code here to see if it works
 
   $.post("/api/friends", newFriend, function(data){
+    console.log("html post");
     if (data){
-      alert("This is where your best match will show up")
+        console.log(data);
+        $("#matchName").text(data.name);
+        $("#matchImg").attr("src", data.photoLink);
+        $("#resultsModal").modal("toggle");
     }
     $("#name").val("");
     $("#photo").val("");
     $("#q1").val("");
     $("#q2").val("");
+    $("#q3").val("");
+    $("#q4").val("");
+    $("#q5").val("");
+    $("#q6").val("");
+    $("#q7").val("");
+    $("#q8").val("");
+    $("#q9").val("");
+    $("#q10").val("");
+  
   });
 });
 
